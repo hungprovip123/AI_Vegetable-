@@ -1,4 +1,4 @@
-# Vietnamese Vegetable Classification - Docker Image
+# Vietnamese Vegetable Classification - Optimized for Railway
 
 FROM python:3.11-slim
 
@@ -20,8 +20,9 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements first for better caching
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies with optimizations
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY . .

@@ -1,0 +1,26 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+jinja2==3.1.2
+aiofiles==23.2.1
+
+# AI/ML dependencies
+ultralytics==8.3.203
+torch==2.1.0
+torchvision==0.16.0
+opencv-python==4.8.1.78
+pillow==10.0.1
+numpy==1.24.4
+
+# Image processing
+scikit-image==0.21.0
+
+# Optional dependencies for better performance
+# python-json-logger==2.0.7
+# gunicorn==21.2.0  # For production deployment
+
+# Development dependencies (optional)
+# pytest==7.4.3
+# pytest-asyncio==0.21.1
+# httpx==0.25.2

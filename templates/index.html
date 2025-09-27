@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥬 Nhận Diện Rau Việt Nam - AI Classification</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-leaf me-2"></i>
+                <strong>VeggieAI</strong>
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/docs" target="_blank">
+                    <i class="fas fa-code me-1"></i>API Docs
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Upload Section -->
+    <section class="py-5 mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-4">
+                        <h1 class="display-5 fw-bold text-success mb-3">
+                            🥬 Nhận Diện Rau Việt Nam
+                        </h1>
+                        <p class="lead text-muted">
+                            AI thông minh nhận diện {{ total_classes }} loại rau củ với độ chính xác cao
+                        </p>
+                    </div>
+
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <h3 class="card-title text-center mb-4">
+                                <i class="fas fa-camera text-success me-2"></i>
+                                Tải Ảnh Lên
+                            </h3>
+
+                            <!-- Upload Area -->
+                            <div class="upload-area" id="uploadArea">
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                    <h5>Kéo thả ảnh vào đây</h5>
+                                    <p class="text-muted">hoặc</p>
+                                    <button class="btn btn-primary" id="chooseFileBtn">
+                                        <i class="fas fa-folder-open me-2"></i>Chọn Ảnh
+                                    </button>
+                                    <input type="file" id="fileInput" class="d-none" accept="image/*">
+                                    <small class="text-muted d-block mt-2">
+                                        Hỗ trợ: JPG, PNG, WEBP (tối đa 10MB)
+                                    </small>
+                                </div>
+                            </div>
+
+                            <!-- Preview Area -->
+                            <div class="preview-area d-none" id="previewArea">
+                                <div class="text-center mb-3">
+                                    <img id="previewImage" src="" alt="Preview" class="img-fluid rounded shadow">
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-success flex-fill" id="predictBtn">
+                                        <i class="fas fa-magic me-2"></i>Nhận Diện
+                                    </button>
+                                    <button class="btn btn-secondary" id="resetBtn">
+                                        <i class="fas fa-redo me-2"></i>Chọn Lại
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Loading -->
+                            <div class="loading-area d-none" id="loadingArea">
+                                <div class="text-center">
+                                    <div class="spinner-border text-success mb-3" role="status">
+                                        <span class="visually-hidden">Đang xử lý...</span>
+                                    </div>
+                                    <h5>Đang nhận diện...</h5>
+                                    <p class="text-muted">Vui lòng đợi trong giây lát</p>
+                                </div>
+                            </div>
+
+                            <!-- Results -->
+                            <div class="results-area d-none" id="resultsArea">
+                                <h5 class="text-center mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    Kết Quả Nhận Diện
+                                </h5>
+                                <div id="resultsContent"></div>
+                                <button class="btn btn-primary w-100 mt-3" id="newPredictionBtn">
+                                    <i class="fas fa-plus me-2"></i>Nhận Diện Ảnh Khác
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-brain text-primary mb-2" style="font-size: 2rem;"></i>
+                        <h6>AI YOLOv8</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-leaf text-success mb-2" style="font-size: 2rem;"></i>
+                        <h6>{{ total_classes }} Loại Rau</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-chart-line text-info mb-2" style="font-size: 2rem;"></i>
+                        <h6>89% Accuracy</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-bolt text-warning mb-2" style="font-size: 2rem;"></i>
+                        <h6>Xử Lý Nhanh</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h6><i class="fas fa-leaf me-2"></i>VeggieAI</h6>
+                    <p class="text-muted mb-0">Hệ thống AI nhận diện rau củ Việt Nam</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">Powered by YOLOv8 & FastAPI</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

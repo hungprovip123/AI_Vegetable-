@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu - VeggieAI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-leaf me-2"></i>
+                <strong>VeggieAI</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Trang Chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">
+                            <i class="fas fa-info-circle me-1"></i>Giới Thiệu
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/docs" target="_blank">
+                            <i class="fas fa-code me-1"></i>API Docs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h1 class="display-4 fw-bold text-gradient">🥬 VeggieAI</h1>
+                        <p class="lead">Hệ thống AI thông minh nhận diện rau củ Việt Nam</p>
+                    </div>
+
+                    <div class="card shadow-lg border-0 mb-5">
+                        <div class="card-body p-5">
+                            <h2 class="h3 mb-4">
+                                <i class="fas fa-eye text-success me-2"></i>
+                                Giới Thiệu Dự Án
+                            </h2>
+                            <p>
+                                VeggieAI là một hệ thống trí tuệ nhân tạo được phát triển đặc biệt để nhận diện các loại
+                                rau củ phổ biến tại Việt Nam.
+                                Sử dụng công nghệ YOLOv8 tiên tiến, hệ thống có thể phân loại chính xác hơn 80 loại rau
+                                củ khác nhau
+                                với độ chính xác lên đến 89%.
+                            </p>
+                            <p>
+                                Dự án được xây dựng nhằm hỗ trợ người dùng Việt Nam trong việc nhận diện các loại rau
+                                củ,
+                                đặc biệt hữu ích cho các bạn trẻ, người nước ngoài hoặc những ai muốn tìm hiểu thêm về
+                                các loại rau củ trong ẩm thực Việt Nam.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-brain text-primary mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Công Nghệ AI Tiên Tiến</h5>
+                                    <p class="text-muted">
+                                        Sử dụng mô hình YOLOv8 - một trong những kiến trúc deep learning
+                                        mới nhất và hiệu quả nhất cho bài toán phân loại hình ảnh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-leaf text-success mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Chuyên Biệt Cho Việt Nam</h5>
+                                    <p class="text-muted">
+                                        Dataset được thu thập và xây dựng đặc biệt cho các loại rau củ
+                                        phổ biến tại Việt Nam, đảm bảo độ chính xác cao nhất.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-lg border-0 mb-5">
+                        <div class="card-body p-5">
+                            <h2 class="h3 mb-4">
+                                <i class="fas fa-cogs text-warning me-2"></i>
+                                Công Nghệ Sử Dụng
+                            </h2>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <i class="fab fa-python text-info me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h6 class="mb-0">Python</h6>
+                                            <small class="text-muted">Backend Framework</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <i class="fas fa-rocket text-success me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h6 class="mb-0">FastAPI</h6>
+                                            <small class="text-muted">Web API</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <i class="fas fa-brain text-primary me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h6 class="mb-0">YOLOv8</h6>
+                                            <small class="text-muted">AI Model</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <i class="fab fa-bootstrap text-purple me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h6 class="mb-0">Bootstrap</h6>
+                                            <small class="text-muted">UI Framework</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <i class="fab fa-js-square text-warning me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h6 class="mb-0">JavaScript</h6>
+                                            <small class="text-muted">Frontend Logic</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <i class="fab fa-docker text-info me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h6 class="mb-0">Docker</h6>
+                                            <small class="text-muted">Deployment</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-lg border-0 mb-5">
+                        <div class="card-body p-5">
+                            <h2 class="h3 mb-4">
+                                <i class="fas fa-chart-line text-info me-2"></i>
+                                Hiệu Suất Mô Hình
+                            </h2>
+                            <div class="row g-4">
+                                <div class="col-md-4 text-center">
+                                    <div class="p-4">
+                                        <div class="display-4 fw-bold text-success">89%</div>
+                                        <h6>Top-5 Accuracy</h6>
+                                        <p class="text-muted small">Trong top 5 dự đoán có chứa đáp án đúng</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="p-4">
+                                        <div class="display-4 fw-bold text-primary">71%</div>
+                                        <h6>Top-1 Accuracy</h6>
+                                        <p class="text-muted small">Dự đoán hàng đầu chính xác</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="p-4">
+                                        <div class="display-4 fw-bold text-warning">81</div>
+                                        <h6>Loại Rau</h6>
+                                        <p class="text-muted small">Số lượng classes được hỗ trợ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <h2 class="h3 mb-4">
+                                <i class="fas fa-code text-dark me-2"></i>
+                                API Documentation
+                            </h2>
+                            <p>
+                                VeggieAI cung cấp RESTful API đầy đủ để tích hợp vào các ứng dụng khác.
+                                Các endpoints chính bao gồm:
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <code class="bg-light p-2 rounded">POST /api/predict</code> - Nhận diện từ file
+                                    upload
+                                </li>
+                                <li class="mb-2">
+                                    <code class="bg-light p-2 rounded">POST /api/predict-base64</code> - Nhận diện từ
+                                    base64
+                                </li>
+                                <li class="mb-2">
+                                    <code class="bg-light p-2 rounded">GET /api/classes</code> - Lấy danh sách classes
+                                </li>
+                                <li class="mb-2">
+                                    <code class="bg-light p-2 rounded">GET /api/model-info</code> - Thông tin model
+                                </li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="/docs" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-2"></i>
+                                    Xem API Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6><i class="fas fa-leaf me-2"></i>VeggieAI</h6>
+                    <p class="text-muted">Hệ thống AI nhận diện rau củ Việt Nam</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted">Powered by YOLOv8 & FastAPI</p>
+                    <a href="/" class="btn btn-success btn-sm">
+                        <i class="fas fa-arrow-left me-1"></i>Quay về trang chủ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

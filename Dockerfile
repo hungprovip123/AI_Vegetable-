@@ -30,8 +30,9 @@ COPY . .
 # Create directories for static files and uploads
 RUN mkdir -p static/css static/js static/images templates
 
-# Expose port
+# Expose port (GCP Cloud Run uses PORT env var)
 EXPOSE 8000
+ENV PORT=8000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 \

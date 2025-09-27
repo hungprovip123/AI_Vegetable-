@@ -80,8 +80,8 @@ async def startup():
     if not model_path:
         logger.info("📥 Model not found locally, attempting download...")
         try:
-            from download_model import download_model
-            if download_model():
+            from download_model import download_all
+            if download_all():
                 model_path = find_model_path()
         except Exception as e:
             logger.error(f"❌ Download failed: {e}")

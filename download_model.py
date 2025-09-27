@@ -9,6 +9,42 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
+def download_class_mapping():
+    """Download class mapping từ Google Drive"""
+    
+    # Tạo thư mục nếu chưa có
+    dataset_dir = Path("vegetable_dataset")
+    dataset_dir.mkdir(parents=True, exist_ok=True)
+    
+    mapping_path = dataset_dir / "class_mapping.json"
+    
+    # Nếu mapping đã có thì skip
+    if mapping_path.exists():
+        print(f"✅ Class mapping already exists at {mapping_path}")
+        return True
+    
+    print("📥 Downloading class mapping from Google Drive...")
+    
+    try:
+        # Google Drive direct download link cho class mapping
+        download_url = "https://drive.google.com/uc?export=download&id=1JlSySiIy8Ichh79MHaqwIiRAG8Mb1JXS"
+        
+        print(f"📡 Downloading from: {download_url}")
+        urllib.request.urlretrieve(download_url, mapping_path)
+        print(f"\n✅ Class mapping downloaded to {mapping_path}")
+        
+        # Verify file
+        if mapping_path.stat().st_size > 100:  # At least 100 bytes
+            print(f"✅ Class mapping verification successful ({mapping_path.stat().st_size} bytes)")
+            return True
+        else:
+            print("❌ Downloaded class mapping seems too small")
+            return False
+            
+    except Exception as e:
+        print(f"❌ Error downloading class mapping: {e}")
+        return False
+
 def download_model():
     """Download model từ Google Drive"""
     
@@ -32,8 +68,8 @@ def download_model():
         # 2. Get sharing link: https://drive.google.com/file/d/FILE_ID/view?usp=sharing  
         # 3. Convert to direct link: https://drive.google.com/uc?export=download&id=FILE_ID
         
-        # FIXME: Cần update với Google Drive link thật
-        download_url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n-cls.pt"
+        # Google Drive direct download link cho model
+        download_url = "https://drive.google.com/uc?export=download&id=1hw4JUHJWz2qFAvRKDWLtTNizeLiJj3NU"
         
         print(f"📡 Downloading from: {download_url}")
         
@@ -71,17 +107,36 @@ def create_dummy_model():
     
     print(f"✅ Created dummy model at {dummy_path}")
 
+def download_all():
+    """Download both model and class mapping"""
+    print("🤖 Downloading Model & Class Mapping")
+    print("=" * 50)
+    
+    # Download class mapping first (smaller file)
+    mapping_success = download_class_mapping()
+    
+    # Download model
+    model_success = download_model()
+    
+    if model_success and mapping_success:
+        print("\n🎉 All files downloaded successfully!")
+        return True
+    elif model_success:
+        print("\n⚠️ Model downloaded, but class mapping failed")
+        return True
+    else:
+        print("\n❌ Model download failed")
+        return False
+
 if __name__ == "__main__":
     print("🤖 Model Download Script")
     print("=" * 50)
     
-    success = download_model()
+    success = download_all()
     
     if not success:
         print("\n🔧 Creating dummy model for testing...")
         create_dummy_model()
-        print("\n📋 TODO for deployment:")
-        print("1. Upload model file to Google Drive")
-        print("2. Get direct download link") 
-        print("3. Update download_url in this script")
-        print("4. Test deployment")
+        print("\n📋 Files should be available at:")
+        print("1. Model: vegetable_classification/yolov8n_vegetables/weights/best.pt")
+        print("2. Class mapping: vegetable_dataset/class_mapping.json")
